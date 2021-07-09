@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stocks Alarm App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+
+<body>
+<div class="container my-3" >
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2>Register</h2>
+            <form th:action="@{/register}" th:object="${userDTO}" method="post">
+                <div class="form-row">
+                    <div class="col-md-6 form-group">
+                        <label>First Name</label>
+                        <input type="text" required="required" class="form-control" th:field="*{firstName}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Last Name</label>
+                        <input type="text" required="required" class="form-control" th:field="*{lastName}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Email (*Will be used as username)</label>
+                        <input type="email" required="required" class="form-control" th:field="*{username}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Password</label>
+                        <input type="password" required="required" minlength="8" class="form-control" th:field="*{password}">
+                    </div>
+
+
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+</script>
+</body>
+</html>
