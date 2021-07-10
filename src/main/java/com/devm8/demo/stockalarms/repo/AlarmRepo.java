@@ -14,4 +14,5 @@ public interface AlarmRepo extends JpaRepository<Alarm, Integer> {
     Optional<Alarm> findByUserAndStock(User user, Stock stock);
     List<Alarm> findByUser(User user);
     List<Alarm> findByStockAndIsActive(Stock stock, Boolean isActive);
+    List<Alarm> findByIsActive(Boolean isActive);
 }

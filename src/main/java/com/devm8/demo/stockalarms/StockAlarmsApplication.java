@@ -1,6 +1,6 @@
 package com.devm8.demo.stockalarms;
 
-import com.devm8.demo.stockalarms.services.PollingJob1;
+import com.devm8.demo.stockalarms.services.PollingService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,12 +22,11 @@ public class StockAlarmsApplication {
 	}
 
 	@Bean
-	public CommandLineRunner onStart(PollingJob1 poller) {
+	public CommandLineRunner onStart(PollingService poller) {
 		return (args) -> {
-			ScheduledExecutorService schedular = Executors.newScheduledThreadPool(1);
-			//specify the time duration
-
-			schedular.scheduleAtFixedRate(poller, 0,interval, TimeUnit.MINUTES);
+			ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+			//polling interval can be modified from application properties
+			scheduler.scheduleAtFixedRate(poller, 0,interval, TimeUnit.MINUTES);
 
 		};
 	}
